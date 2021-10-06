@@ -9,8 +9,8 @@ using MusicApi.Data;
 namespace MusicApi.Migrations
 {
     [DbContext(typeof(ApiDBContext))]
-    [Migration("20211006150141_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211006162125_SeedSongsTable")]
+    partial class SeedSongsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,9 @@ namespace MusicApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Language")
                         .HasColumnType("nvarchar(max)");
 
@@ -36,6 +39,22 @@ namespace MusicApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Songs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Duration = "11:20",
+                            Language = "English",
+                            Title = "November Rain"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Duration = "3:25",
+                            Language = "Español",
+                            Title = "Laura"
+                        });
                 });
 #pragma warning restore 612, 618
         }

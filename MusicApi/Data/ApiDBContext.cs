@@ -14,5 +14,25 @@ namespace MusicApi.Data
 
         }
         public DbSet<Song> Songs { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Song>().HasData(
+                new Song
+                {
+                    Id=1, 
+                    Title="November Rain",
+                    Language="English",
+                    Duration="11:20"
+                },
+                 new Song
+                 {
+                     Id = 2,
+                     Title = "Laura",
+                     Language = "Español",
+                     Duration = "3:25"
+                 }
+                );
+
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace MusicApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MusicApi", Version = "v1" });
             });
-            services.AddDbContext<ApiDBContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MusicDb;"));
+            services.AddDbContext<ApiDBContext>(option => option.UseSqlServer(@"Data Source=ServerName;Initial Catalog=MusicDb;User Id=UserID;Password=YourPassword"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MusicApi.Data;
 
 namespace MusicApi.Migrations
 {
     [DbContext(typeof(ApiDBContext))]
-    partial class ApiDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211006160351_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,22 +39,6 @@ namespace MusicApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Songs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Duration = "11:20",
-                            Language = "English",
-                            Title = "November Rain"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Duration = "3:25",
-                            Language = "Español",
-                            Title = "Laura"
-                        });
                 });
 #pragma warning restore 612, 618
         }
